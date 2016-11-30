@@ -1,10 +1,11 @@
 package domain.model;
 
-public class Application implements IHaveId{
+public class Hardware implements IHaveId{
 
 	private int id;
     private String name;
     private String price;
+    private String manufacturer;
     
 	public int getId() {
 		return id;
@@ -24,4 +25,12 @@ public class Application implements IHaveId{
 	public void setPrice(String price) {
 		this.price = price;
 	}
+	public String getManufacturer() {
+		return manufacturer;
+	}
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+    
+    
 }

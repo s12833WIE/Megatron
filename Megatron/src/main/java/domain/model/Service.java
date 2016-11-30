@@ -1,6 +1,6 @@
 package domain.model;
 
-public class Application implements IHaveId{
+public class Service implements IHaveId{
 
 	private int id;
     private String name;

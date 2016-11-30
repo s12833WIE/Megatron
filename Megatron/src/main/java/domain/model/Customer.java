@@ -1,10 +1,10 @@
 package domain.model;
 
-public class Application implements IHaveId{
+public class Customer implements IHaveId{
 
 	private int id;
     private String name;
-    private String price;
+    private String surname;
     
 	public int getId() {
 		return id;
@@ -18,10 +18,10 @@ public class Application implements IHaveId{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
-		return price;
+	public String getSurname() {
+		return surname;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 }
