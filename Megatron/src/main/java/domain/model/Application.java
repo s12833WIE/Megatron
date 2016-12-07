@@ -1,27 +1,30 @@
 package domain.model;
 
-public class Application implements IHaveId{
+import java.sql.Date;
 
-	private int id;
-    private String name;
-    private String price;
-    
-	public int getId() {
+public class Application {
+
+	private Integer id;
+	private String price;
+	private Date date;
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setName(String price) {
 		this.price = price;
 	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 }
