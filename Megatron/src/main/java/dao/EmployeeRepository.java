@@ -24,7 +24,7 @@ implements IEmployeeRepository{
 
 		try{
 		    getName = connection.prepareStatement(getNameSql());
-		    getSurname = connection.prepareStatement(getSurNameSql());
+		    getSurname = connection.prepareStatement(getSurnameSql());
         }catch(SQLException e){
 		    e.printStackTrace();
         }
@@ -52,7 +52,7 @@ implements IEmployeeRepository{
 	}
 
 	protected String getNameSql(){return "SELECT * FROM people where name = ?";}
-	protected String getSurNameSql(){return "SELECT * FROM people where surName=?";}
+	protected String getSurnameSql(){return "SELECT * FROM people where surName=?";}
 
 
 	@Override
@@ -68,29 +68,33 @@ implements IEmployeeRepository{
 		insert.setString(2, entity.getSurname());
 	}
 
-
-
-    private List<Employee> searchBy(String value){
-        List<Employee> people = new ArrayList<>();
-        try{
-            getName.setString(1,value);
-            ResultSet resultSet = getName.executeQuery();
-            while(resultSet.next()){
-                people.add(mapper.map(resultSet));
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return people;
-    }
-
     public List<Employee> withName(String name) {
-        return searchBy(name);
+    	 List<Employee> people = new ArrayList<Employee>();
+         try{
+             getName.setString(1,name);
+             ResultSet resultSet = getName.executeQuery();
+             while(resultSet.next()){
+                 people.add(mapper.map(resultSet));
+             }
+         }catch (SQLException e){
+             e.printStackTrace();
+         }
+         return people;
     }
 
 
     public List<Employee> withSurname(String surname) {
-        return searchBy(surname);
+    	 List<Employee> people = new ArrayList<Employee>();
+         try{
+             getSurname.setString(1,surname);
+             ResultSet resultSet = getSurname.executeQuery();
+             while(resultSet.next()){
+                 people.add(mapper.map(resultSet));
+             }
+         }catch (SQLException e){
+             e.printStackTrace();
+         }
+         return people;
     }
 
 }
