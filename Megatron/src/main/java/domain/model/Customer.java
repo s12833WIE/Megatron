@@ -1,5 +1,8 @@
 package domain.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Customer implements IHaveId{
 
 	private int id;
